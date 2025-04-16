@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade ChartJS</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="atividade.css">
+</head>
+<body></body>
+    <div>
+        <canvas id="graficoLinhas"></canvas>
+    </div>
+    <div>
+        <canvas id="graficoBarras"></canvas>
+    </div>
+</body>
+<script>
+    const data = {
+            labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+            datasets: [
+                {
+                    label: 'Temperatura',
+                    data: [30, 29, 28, 25, 22, 23],
+                    borderWidth: 1,
+                    borderColor: 'pink',
+                    backgroundColor:'pink',
+                },
+                {
+                    label: 'Umidade',
+                    data: [80, 82, 80, 85, 80, 83],
+                    borderWidth: 1,
+                    borderColor: 'purple',
+                    backgroundColor:'purple',
+                }
+            ]
+        };
+
+        const data2 = {
+            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+            datasets: [
+                {
+                    label: 'Temperatura média',
+                    data: [22, 24, 27, 23, 20, 18],
+                    borderWidth: 1,
+                    borderColor: 'pink',
+                    backgroundColor:'pink',
+                    fill: true
+                },
+                {
+                    label: 'Umidade média',
+                    data: [90, 89, 93, 87, 88, 82],
+                    borderWidth: 1,
+                    borderColor: 'purple',
+                    backgroundColor:'purple',
+                    fill: true
+                }
+            ]
+        };
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        const config2 = {
+            type: 'bar',
+            data: data2,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        const graficoLinhas = new Chart(
+            document.getElementById('graficoLinhas'),
+            config
+        );
+
+        const graficoBarras = new Chart(
+            document.getElementById('graficoBarras'),
+            config2
+        );
+</script>
+</html>
